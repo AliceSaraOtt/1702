@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票详情</title>
+</head>
+<body>
+<h1>{{ question.question_text }}</h1>
+{#<ul>#}
+{#    {% for choice in question.choice_set.all %}#}
+{#        <li>{{ choice.choice_text }}</li>#}
+{#        {% empty %}#}
+{#        <p>暂无选项</p>#}
+{#    {% endfor %}#}
+{#</ul>#}
+<form action="{% url 'poll:votes' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" value="{{ choice.id }}" />
+        <label>{{ choice.choice_text }}</label><br>
+    {% endfor %}
+    <input type="submit" value="投票">
+</form>
+<hr>
+<h1 style="color: #ff0000">{{ error_message }}</h1>
+</body>
+</html>

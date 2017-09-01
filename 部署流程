@@ -1,0 +1,15 @@
+django项目正常运行
+    1.收集静态文件
+    2.写tornado_server
+
+远程连接服务器
+    1.建立虚拟环境
+    2.安装项目依赖包
+    3.上传项目
+    4.解压项目
+
+    5.安装supervisor
+        上传项目进程配置文件
+        启动supervisor
+    6.上传nginx 虚拟机配置文件
+    7.重启nginx
